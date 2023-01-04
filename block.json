@@ -1,0 +1,20 @@
+{
+  "name": "acf/lci-post-slider",
+  "title": "LCI Post Slider",
+  "description": "Post Slider Block for Gutenberg made with ACF",
+
+  "apiVersion": 2,
+
+  "style": ["flickity", "lci-post-slider-style"],
+  "script": ["flickity", "lci-post-slider-script"],
+
+  "category": "hello-lci",
+  "icon": "images-alt2",
+
+  "keywords": ["carousel", "slider", "flickity"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "block-templates/render.php"
+  },
+  "textdomain": "lci-post-slider"
+}

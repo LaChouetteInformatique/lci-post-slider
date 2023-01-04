@@ -1,0 +1,119 @@
+.phpintel
+_book
+.greyhr
+sftp-config.json
+
+# NPM #
+##########
+# Ignore all directories called node_modules in current folder and any subfolders.
+node_modules/
+/node_modules/
+npm-debug.log
+
+# Wordpress files and folder
+# wp-admin/
+# wp-content/languages/
+
+# wp-includes/
+# wp-config.php
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+*.map
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.env
+
+# OS generated files #
+######################
+.DS_Store
+**/.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+._*
+desktop.ini
+
+# SASS #
+##########
+**/.sass-cache
+**/.sass-cache/*
+**/.map
+
+# SCSS #
+.scss-cache
+
+# Vim generated files #
+######################
+# *.un~
+
+# Composer #
+##########
+!assets/js/vendor/
+wpcs/
+/vendor/
+
+# Bower #
+##########
+assets/bower_components/*
+bower_components
+.bower-cache
+.bower-registry
+.bower-tmp
+
+# Codekit #
+##########
+# /codekit-config.json
+# *.codekit
+# **.codekit-cache/*
+
+# Sublime Text #
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio Code
+**/*.code-workspace
+
+# Compiled Files and Build Dirs #
+##########
+/README.html
+/dist/
+
+# PhpStrom Project Files #
+.idea/
+library/vendors/composer
+# assets/img/.DS_Store
+
+# NetBeans #
+nbproject
+nbproject/private/
+nbbuild/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.nb-gradle/
+
+# Archives
+# archives/
+
+# Assets
+assets/
+
+# Uploads
+Uploads/
+
+# Security
+**.htaccess

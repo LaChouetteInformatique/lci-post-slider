@@ -1,0 +1,65 @@
+{
+  "name": "lci-post-slider",
+  "version": "1.0.0",
+  "description": "Post Slider Block for Gutenberg made with ACF",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:rtl": "rtlcss style.css style-rtl.css",
+    "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
+    "lint:js": "wp-scripts lint-js 'js/*.js'",
+    "dev": "grunt --mode=dev",
+    "build": "grunt"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@lodder/grunt-postcss": "^3.1.1",
+    "@wordpress/i18n": "^4.24.0",
+    "@wordpress/stylelint-config": "^19.1.0",
+    "autoprefixer": "^10.4.0",
+    "babelify": "^10.0.0",
+    "browser-sync": "^2.27.7",
+    "concurrently": "^6.3.0",
+    "core-js": "^3.19.1",
+    "cssnano": "^5.0.9",
+    "dir-archiver": "^1.1.1",
+    "eslint": "^8.2.0",
+    "grunt": "^1.4.1",
+    "grunt-babel": "^8.0.0",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-browserify": "^6.0.0",
+    "grunt-chokidar": "^1.0.2",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-dart-sass": "^2.0.1",
+    "grunt-sass": "^3.1.0",
+    "load-grunt-tasks": "^5.1.0",
+    "postcss": "^8.4.5",
+    "postcss-browser-reporter": "^0.6.0",
+    "postcss-reporter": "^7.0.4",
+    "rtlcss": "^3.5.0",
+    "sass": "^1.43.4"
+  },
+  "browserslist": [
+    "defaults and supports es6-module",
+    "maintained node versions"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LaChouetteInformatique/lci-post-slider.git"
+  },
+  "keywords": [
+    "gutenberg",
+    "wordpress",
+    "ACF",
+    "block",
+    "plugin"
+  ],
+  "author": "La Chouette Informatique",
+  "license": "SEE LICENCE IN LICENCE",
+  "bugs": {
+    "url": "https://github.com/LaChouetteInformatique/lci-post-slider/issues"
+  },
+  "homepage": "https://github.com/LaChouetteInformatique/lci-post-slider#readme"
+}
