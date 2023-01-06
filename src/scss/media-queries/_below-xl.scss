@@ -1,0 +1,7 @@
+@use "../components/config" as *;
+
+// // screen width < LG break-point
+@media not all and (min-width : #{$bp-xl}) {
+  // @import "../components/slider_no_fouc_b_xl";
+  @import "../components/post-cards_b_xl";
+}

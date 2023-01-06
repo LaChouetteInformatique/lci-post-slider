@@ -1,0 +1,6 @@
+@use "../components/config" as *;
+
+// // screen width < SM break-point
+@media not all and (min-width : #{$bp-sm}) {
+  @import "../components/post-cards_b_sm";
+}

@@ -1,0 +1,11 @@
+@use "slider-buttons";
+@use "slider-enable-media-query";
+@use "post-cards";
+// @use "scss/slider_no_fouc_b_xl";
+
+.lci-post-slider {
+  margin-bottom: 70px;
+}
+.lci-post-slider-container:focus {
+  outline: none;
+}

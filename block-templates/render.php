@@ -45,55 +45,112 @@ if (!empty($block['align'])) {
 }
 
 // ACF Fields
-$images = get_field('images');
-$cellalign = get_field('cellalign'); // left, right or center
-$wraparound = get_field('wraparound'); // true/false
+// $images = get_field('images');
+// $cellalign = get_field('cellalign'); // left, right or center
+// $wraparound = get_field('wraparound'); // true/false
 
-$images_width = get_field('images_width');
-if (!$images_width['value'])
-	$images_width['value'] = '25';
-if (!$images_width['unity'])
-	$images_width['unity'] = 'vw';
+// $images_width = get_field('images_width');
+// if (!$images_width['value'])
+// 	$images_width['value'] = '25';
+// if (!$images_width['unity'])
+// 	$images_width['unity'] = 'vw';
 
-$gap = get_field('gap');
-if (!$gap['value'])
-	$gap['value'] = '20';
-if (!$gap['unity'])
-	$gap['unity'] = 'px';
 
-$size = 'slider_flickity_image'; // (thumbnail, medium, large, full or custom size)
+/************************************
+ * 
+ *            POST LOOP
+ * 
+ ************************************/
+
+$args = [
+	'posts_per_page' => 3,
+	'post_type' => 'post',
+	//https://wordpress.stackexchange.com/questions/215871/explanation-of-update-post-meta-term-cache
+	'update_post_meta_cache' => false,
+	'update_post_term_cache' => false,
+];
+
+$post_query = new \WP_Query($args);
 
 ?>
 
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-	<?php
 
-	printf(
-		'<div class="lci-post-slider-container is-hidden" data-cellalign="%s" data-wraparound="%s">',
-		esc_attr($cellalign),
-		esc_attr($wraparound)
-	);
+	<div class="lci-post-slider-container is-hidden row ">
+		<?php
 
-	if ($images) {
 
-		foreach ($images as $image) {
-			printf(
-				'<img src="%s" alt="%s" width="%s" height="500" ' . 'style="margin-right: %s; width: %s;">',
-				// src
-				esc_attr(wp_get_attachment_image_url($image['ID'], $size)),
-				// alt
-				esc_attr($image['alt']),
-				// width
-				esc_attr($images_width['value'] . $images_width['unity']),
-				// gap
-				esc_attr($gap['value'] . $gap['unity']),
-				// width
-				esc_attr($images_width['value'] . $images_width['unity']),
-			);
+		if ($post_query->have_posts()) {
+			while ($post_query->have_posts()) {
+				$post_query->the_post();
+				?>
+				<div class="col-md-10 col-xl-4 is-hidden">
+					<div class="card">
+
+						<?php
+						/* <a href="<?php echo esc_url(get_the_permalink()); ?>" class="img-card">*/
+						ob_start();
+						if (has_post_thumbnail()) {
+							LCI_POST_SLIDER\Helpers\the_post_custom_thumbnail(
+								get_the_ID(),
+								'featured-thumbnail',
+								[
+									'sizes' => '(max-width: 420px) 420px, 233px',
+									'class' => '',
+								]
+							);
+
+						} else { ?>
+							<img src="https://via.placeholder.com/510x340" class="" alt="Card image cap">
+						<?php
+						}
+
+						$html_content = ob_get_contents();
+						ob_end_clean();
+
+						LCI_POST_SLIDER\Helpers\frontend_link(
+							$html_content,
+							[
+								'href' => esc_url(get_the_permalink()),
+								'class' => 'img-card'
+							]
+						);
+
+						?>
+
+
+						</a>
+						<div class="card-content">
+							<?php the_title('<h3 class="card-title">', '</h3>'); ?>
+							<?php
+							LCI_POST_SLIDER\Helpers\lci_the_excerpt(240);
+							// the_excerpt();
+							?>
+
+						</div>
+						<div class="card-read-more">
+							<?php
+							LCI_POST_SLIDER\Helpers\frontend_link(
+								esc_html__('View More', 'lci-post-slider'),
+								[
+									'href' => esc_url(get_the_permalink()),
+									'class' => 'btn btn-link btn-block'
+								]
+							);
+
+							?>
+						</div>
+					</div>
+				</div>
+
+
+			<?php
+			}
+
+		} else {
+			echo __('No images found. Add/select some by clicking on the "Add to gallery" button.', 'lci-post-slider');
 		}
-	} else {
-		echo __('No images found. Add/select some by clicking on the "Add to gallery" button.', 'lci-post-slider');
-	}
-	echo '</div>';
-	?>
+		wp_reset_postdata();
+		echo '</div>';
+		?>
 </section>

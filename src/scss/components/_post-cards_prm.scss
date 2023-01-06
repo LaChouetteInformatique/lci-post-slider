@@ -1,0 +1,11 @@
+.card {
+  transition: none;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.img-card img {
+  transition: none;
+}

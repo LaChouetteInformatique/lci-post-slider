@@ -1,0 +1,14 @@
+@use "config" as *;
+
+// enable Flickity by default
+.lci-post-slider-container:after {
+  content: "flickity";
+  display: none;
+}
+
+@media screen and (min-width: $slider-disable-break-point) {
+  // disable Flickity for large devices
+  .lci-post-slider-container:after {
+    content: "";
+  }
+}

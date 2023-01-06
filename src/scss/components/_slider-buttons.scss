@@ -1,0 +1,31 @@
+@use "config" as *;
+@use "sass:color";
+
+.flickity-button {
+  $contrast-color: #333;
+  $alpha-contrast-color: color.adjust($contrast-color, $alpha: -0.3);
+
+  color: var(--slider-button-color, $contrast-color);
+  padding: 1px 6px;
+
+  background: hsla(0, 0%, 100%, 0.5);
+  border: 1px solid var(--slider-button-color, $alpha-contrast-color);
+
+  &:focus,
+  &:hover {
+    color: white;
+    background: var(--slider-button-color, $alpha-contrast-color);
+    transition: none;
+  }
+}
+
+.flickity-prev-next-button .flickity-button-icon {
+  width: 40%;
+  height: 40%;
+  left: 30%;
+  top: 32%;
+}
+
+.flickity-page-dots {
+  left: 0;
+}

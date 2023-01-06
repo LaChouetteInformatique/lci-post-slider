@@ -26,7 +26,7 @@ module.exports = (grunt) => {
         files: [
           {
             expand: true, // Enable dynamic expansion.
-            cwd: "src/", // Src matches are relative to this path.
+            cwd: "src/js/", // Src matches are relative to this path.
             src: ["*.js"], // Actual pattern(s) to match.
             dest: "build/", // Destination path prefix.
             ext: ".js", // Dest filepaths will have this extension.
@@ -49,11 +49,10 @@ module.exports = (grunt) => {
         files: [
           {
             expand: true, // Enable dynamic expansion.
-            cwd: "src/", // Src matches are relative to this path.
-            src: ["*.scss"], // Actual pattern(s) to match.
+            cwd: "src/scss/", // Src matches are relative to this path.
+            src: "*.scss", // Actual pattern(s) to match.
             dest: "build/", // Destination path prefix.
             ext: ".css", // Dest filepaths will have this extension.
-            extDot: "first", // Extensions in filenames begin after the first dot
           },
         ],
       },
@@ -97,9 +96,9 @@ module.exports = (grunt) => {
       },
     },
 
-    chokidar: {
+    watch: {
       // WATCH
-      //https://github.com/paulmillr/chokidar
+      //https://github.com/gruntjs/grunt-contrib-watch
 
       options: {
         spawn: false, // 20 times faster here
@@ -107,12 +106,22 @@ module.exports = (grunt) => {
       },
 
       scss: {
-        files: ["src/**/*.scss", "!library/**", "!node-module/**"],
+        files: [
+          "src/scss/**/*.scss",
+          "src/scss/*.scss",
+          "!library/**",
+          "!node-module/**",
+        ],
         tasks: ["dart-sass", "postcss"],
       },
 
       js: {
-        files: ["src/**/*.js", "!library/**", "!node-module/**"],
+        files: [
+          "src/js/**/*.js",
+          "src/js/*.js",
+          "!library/**",
+          "!node-module/**",
+        ],
         tasks: ["browserify"],
       },
     },
@@ -123,8 +132,11 @@ module.exports = (grunt) => {
         src: [
           // "*.css",
           "/build/**/*.css",
+          "build/*.css",
           "/build/**/*.js",
+          "build/*.js",
           "**/*.php",
+          "*.php",
           "!library",
           "!node-module/**",
         ],
@@ -151,7 +163,7 @@ module.exports = (grunt) => {
       "dart-sass",
       "postcss",
       "browserSync",
-      "chokidar",
+      "watch",
     ]);
   } else {
     grunt.registerTask("default", ["browserify", "dart-sass", "postcss"]);

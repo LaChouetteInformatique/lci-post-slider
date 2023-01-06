@@ -1,0 +1,18 @@
+@use "config" as *;
+
+// Fade in the slider for no Flash Of Unstyled Content (FOUC)
+// https://dev.to/lyqht/what-the-fouc-is-happening-flash-of-unstyled-content-413j
+.lci-post-slider {
+  & .lci-post-slider-container {
+    opacity: 0;
+    transition: opacity 0.6s;
+
+    &.flickity-enabled {
+      opacity: 1;
+    }
+  }
+
+  .is-hidden {
+    display: none;
+  }
+}

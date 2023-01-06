@@ -6,6 +6,7 @@
   "apiVersion": 2,
 
   "style": ["flickity", "lci-post-slider-style"],
+  "editor-style": ["lci-post-slider-editor-style"],
   "script": ["flickity", "lci-post-slider-script"],
 
   "category": "hello-lci",
