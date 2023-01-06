@@ -8,10 +8,11 @@ Advanced Custom Field Pro is requiered for this plugin to work
 
 1. Make sure plugin Advanced Custom Field Pro is installed and activated in your WordPress Dashboard.
 
-2. Clone the WordPress plugin [lci-post-slider](https://github.com/LaChouetteInformatique/lci-post-slider) in your WordPress
-   plugin directory and activate it.
+2. Clone the WordPress plugin [lci-post-slider](https://github.com/LaChouetteInformatique/lci-post-slider) in your WordPress plugin directory and activate it.
 
 <!-- 3. Go to your WordPress Dashbord in the **Custom Field** panel, then **Tools** -> **Import JSON** and import the JSON file from this plugin `group-field` folder -->
+
+3. Go to your WordPress Dashbord and edit or create a post or page to add the **LCI Post** Slider block
 
 ## Development
 
