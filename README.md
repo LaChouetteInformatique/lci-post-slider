@@ -12,7 +12,7 @@ Advanced Custom Field Pro is requiered for this plugin to work
 
 <!-- 3. Go to your WordPress Dashbord in the **Custom Field** panel, then **Tools** -> **Import JSON** and import the JSON file from this plugin `group-field` folder -->
 
-3. Go to your WordPress Dashbord and edit or create a post or page to add the **LCI Post** Slider block
+3. Go to your WordPress Dashbord and edit or create a post or page to add the **LCI Post Slider** block
 
 ## Development
 
@@ -34,7 +34,7 @@ npm run dev
 **Production**
 
 ```bash
-npm run prod
+npm run build
 ```
 
 ## Acknowledgments

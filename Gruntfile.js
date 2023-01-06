@@ -40,6 +40,26 @@ module.exports = (grunt) => {
       },
     },
 
+    uglify: {
+      options: {
+        // mangle: false, // Prevent changes of variables and functions names
+        // sourceMap: true,
+      },
+      target: {
+        files: [
+          // "build/index.js": ["build/index.js"],
+          {
+            expand: true, // Enable dynamic expansion.
+            cwd: "build/", // Src matches are relative to this path.
+            src: ["*.js"], // Actual pattern(s) to match.
+            dest: "build/", // Destination path prefix.
+            ext: ".js", // Dest filepaths will have this extension.
+            // extDot: "first", // Extensions in filenames begin after the first dot
+          },
+        ],
+      },
+    },
+
     "dart-sass": {
       options: {
         sourceMap: devMode,
@@ -166,6 +186,11 @@ module.exports = (grunt) => {
       "watch",
     ]);
   } else {
-    grunt.registerTask("default", ["browserify", "dart-sass", "postcss"]);
+    grunt.registerTask("default", [
+      "browserify",
+      "uglify",
+      "dart-sass",
+      "postcss",
+    ]);
   }
 };
